@@ -17,3 +17,6 @@ https://drive.google.com/drive/folders/1ULYuaMoGNzZbDCfYbzHliy1DFQelQuFy?usp=sha
 Place pre-trained weights into main repo folder
 
 Place model into output folder
+
+## Clone detectron2 repo
+git clone https://github.com/facebookresearch/detectron2/tree/main
