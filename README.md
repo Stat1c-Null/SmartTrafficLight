@@ -19,4 +19,4 @@ Place pre-trained weights into main repo folder
 Place model into output folder
 
 ### Clone detectron2 repo
-git clone https://github.com/facebookresearch/detectron2/tree/main
+git clone https://github.com/facebookresearch/detectron2.git
