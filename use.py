@@ -1,7 +1,7 @@
-from detectron2.detectron2.config import get_cfg
-from detectron2.detectron2.engine import DefaultPredictor
-from detectron2.detectron2.utils.visualizer import Visualizer
-from detectron2.detectron2.data import MetadataCatalog
+from detectron2.config import get_cfg
+from detectron2.engine import DefaultPredictor
+from detectron2.utils.visualizer import Visualizer
+from detectron2.data import MetadataCatalog
 import cv2
 
 # Load the trained model configuration
@@ -13,16 +13,21 @@ cfg.MODEL.DEVICE = "cuda"  # Use GPU if available, otherwise "cpu"
 
 # Initialize predictor with the trained model
 predictor = DefaultPredictor(cfg)
-
+print(predictor.metadata.get("thing_classes"))
 # Load an image
 im = cv2.imread("test/street2.jpg")
 
 # Run inference
 outputs = predictor(im)
 
+print(outputs)
+
 # Visualize the results
 v = Visualizer(im[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
 out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-cv2.imshow("Prediction", out.get_image()[:, :, ::-1])
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+# print(out)
+# draw_img = out.draw_text("Testing", (100, 20))
+# cv2.imshow("Prediction", out.get_image()[:, :, ::-1])
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()

@@ -81,4 +81,3 @@ dependencies:
       - werkzeug==3.1.3
       - wheel==0.44.0
       - yacs==0.1.8
-prefix: C:\Users\slaby\miniconda3\envs\detectron2
