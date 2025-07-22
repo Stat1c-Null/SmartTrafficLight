@@ -52,7 +52,7 @@ import cv2
 predictor = DefaultPredictor(cfg)
 
 # Load an image
-im = cv2.imread("test/street.jpg")
+im = cv2.imread("detectron2_repo/test/street.jpg")
 
 # Run inference
 outputs = predictor(im)
