@@ -1,7 +1,7 @@
-from detectron2.config import get_cfg
-from detectron2.engine import DefaultPredictor
-from detectron2.utils.visualizer import Visualizer
-from detectron2.data import MetadataCatalog
+from detectron2.detectron2.config import get_cfg
+from detectron2.detectron2.engine import DefaultPredictor
+from detectron2.detectron2.utils.visualizer import Visualizer
+from detectron2.detectron2.data import MetadataCatalog
 import cv2, torch, numpy as np
 from collections import Counter
 
@@ -20,7 +20,7 @@ def simple_roi_car_detection():
     metadata = MetadataCatalog.get(cfg.DATASETS.TRAIN[0])
     
     print("Loading image")
-    image = cv2.imread("test/street2.jpg")
+    image = cv2.imread("test/2dcars.jpg")
     
     if image is None:
         print("Error: Could not load image'")
