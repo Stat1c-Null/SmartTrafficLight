@@ -1,0 +1,15 @@
+FROM debian:stable-slim
+
+# Install VLC and networking tools
+RUN apt-get update && \
+    apt-get install -y vlc curl ca-certificates && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+EXPOSE 8554
+
+# Add a non-root user 
+RUN useradd -m vlcuser
+USER vlcuser
+
+# Run VLC in command-line mode (headless)
+CMD ["cvlc", "https://sfs-msc-pub-lq-01.navigator.dot.ga.gov:443/rtplive/ATL-CCTV-0023/playlist.m3u8", "--no-audio", "--sout", "#rtp{sdp=rtsp://0.0.0.0:8554/mystream}", "--sout-keep", "--rtsp-host=0.0.0.0"]

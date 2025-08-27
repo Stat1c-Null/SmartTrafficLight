@@ -1,0 +1,20 @@
+version: 'latest'
+services:
+  backend:
+    image: commentxd/smart_traffic_backend:latest
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+# Docker Volumes are created automatically, no need to define them here
+# Since Atlas is already containerized and has the required vaules
+
+
+
+
+  
+
+
+
+
